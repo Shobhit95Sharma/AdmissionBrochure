@@ -2,7 +2,6 @@ package com.brochure;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -14,17 +13,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+*/
         brochure = (WebView) findViewById(R.id.webView1);
         brochure.loadUrl("file:///android_asset/index.html");
         brochure.getSettings().setJavaScriptEnabled(true);
-        //wv.loadUrl("file:///android_asset/index.html");
-        //wv.getSettings().setJavaScriptEnabled(true);
-        //wv.getSettings().setBuiltInZoomControls(true);
-        //wv.getSettings().setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
-        //wv.getSettings().setLoadsImagesAutomatically(true);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
