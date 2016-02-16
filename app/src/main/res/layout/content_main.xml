@@ -8,15 +8,15 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.brochure.MainActivity"
     tools:showIn="@layout/activity_main">
-<ScrollView
+<!--<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/sc">
+    android:id="@+id/sc">-->
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/webView1"
         android:layout_centerHorizontal="true"
          />
-</ScrollView>
+<!--</ScrollView>-->
 </RelativeLayout>

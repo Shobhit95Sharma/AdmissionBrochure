@@ -2,7 +2,6 @@ package com.brochure;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
 
     public WebView brochure;
     ScrollView scv;
+    View v;
+    private ScrollView scrollView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,22 +24,32 @@ public class MainActivity extends AppCompatActivity {
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 */
-        scv=(ScrollView) findViewById(R.id.sc);
+       // scv=(ScrollView) findViewById(R.id.scv);
         brochure = (WebView) findViewById(R.id.webView1);
         brochure.loadUrl("file:///android_asset/index.html");
         brochure.getSettings().setJavaScriptEnabled(true);
+        brochure.getSettings().setUseWideViewPort(true);
+        brochure.setHorizontalScrollBarEnabled(true);
+        brochure.setScrollContainer(true);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setImageResource(R.drawable.arrow);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-                Toast.makeText(getApplicationContext(),"To The Top!",Toast.LENGTH_LONG).show();
-                scv.scrollTo(0, 0);//Scrolling to top of activity
+                *//*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*//*
+                //scv.scrollTo(0, 0);//Scrolling to top of activity
+                //v.scrollTo(0,0);
+                getScrollView().post(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        getScrollView().scrollTo(0,0);
+                    }
+                });
             }
-        });
+        });*/
     }
 
     @Override
@@ -81,5 +93,9 @@ public class MainActivity extends AppCompatActivity {
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
+    }
+
+    public ScrollView getScrollView() {
+        return scrollView;
     }
 }
